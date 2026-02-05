@@ -184,12 +184,12 @@ class GameState{
           health: 100,
           level: 1,
           powerUps: [],
-          gamesplayed: 0
+          gamesPlayed: 0
         });
         await player.save();
         console.log(`new player created in the database:`, name)
       } else {
-        console.log(`existing player loaded from database:`, name)
+        console.error(`existing player loaded from database:`, name)
       }
 
       // updating the local state
@@ -198,13 +198,16 @@ class GameState{
       this.position = player.position;
       this.health = player.health;
       this.level = player.level;
-      this.powerUps = player.powerUps;
+      this.powerUps = player.powerUps || [];
       this.playerId = player._id
 
-      return this.getLocalState()
-    }catch(error){
-      console.error(`error registering player in the database:`, error)
-      throw error
+     console.log(`Game state loaded for player:`, this.playerName);
+     console.log(`Current State:`, this.getLocalState());
+
+     return await this.getState();
+    } catch(error){
+      console.error(`Error registering player in the database:`, error);
+      throw error;
     }
   }
 
@@ -221,11 +224,28 @@ class GameState{
         powerUps: this.powerUps,
         $inc: {gamesPlayed: 1}
       })
-      console.log(`game saved to the databased for:`, this.playerName)
+      console.log(`game saved to the database for:`, this.playerName)
     }catch(error){
       console.error(`error saving game to the database`, error)
     }
   }
+
+  // Add this method to your GameState class:
+async saveToDatabase() {
+  if (!this.playerId) return;
+  
+  try {
+    await Player.findByIdAndUpdate(this.playerId, {
+      score: this.score,
+      position: this.position,
+      health: this.health,
+      level: this.level,
+      powerUps: this.powerUps
+    });
+  } catch (error) {
+    console.error('Error saving to database:', error);
+  }
+}
 
   // Movement methods (update database too)
   async moveUp() {

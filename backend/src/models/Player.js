@@ -45,6 +45,11 @@ const playerSchema = new mongoose.Schema({
         max: 100
     },
 
+    level:{
+        type: Number,
+        default: 1
+    },
+
     powerUps: [{
         type: String,
         enum: ['specialPower', 'speedBoost', 'HealthPack', 'DoubleScore']
@@ -73,9 +78,18 @@ const playerSchema = new mongoose.Schema({
     }
 });
 
-playerSchema.pre('save', function(next) {
-  this.lastPlayed = new Date();  // Set to current time
-  next();  // Continue with save operation
+// playerSchema.pre('save', function(next) {
+//     try{
+//         this.lastPlayed = new Date();  // Set to current time
+//         return next();  // Continue with save operation
+//     } catch(error){
+//        return next(error)
+//     }
+// });
+
+playerSchema.pre('save', async function() {
+  this.lastPlayed = new Date();
+  // No next() needed for async functions in Mongoose 6+
 });
 
 // updating players' last played timestamp before saving the game
