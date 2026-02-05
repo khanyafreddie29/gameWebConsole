@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 // run middleware first (auth checks, validation, etc.)
 // decide which controller function gets called for which request path
 
-=======
->>>>>>> caf8bb789ce908ab946c5a2cc603beaad2ec50db
 import express from 'express';
 import {
   getGameState,
@@ -18,13 +15,9 @@ import {
   comboAction,
   powerAction,
   resetGame,
-<<<<<<< HEAD
   healthCheck,
   getLeaderboard,
   getPlayerStats
-=======
-  healthCheck
->>>>>>> caf8bb789ce908ab946c5a2cc603beaad2ec50db
 } from '../controllers/gameController.js';
 
 const router = express.Router();
@@ -33,11 +26,8 @@ const router = express.Router();
 router.get('/state', getGameState);
 router.post('/player', registerPlayer);
 router.post('/reset', resetGame);
-<<<<<<< HEAD
 router.get('/leaderboard', getLeaderboard);
 router.get('/player/:playerId', getPlayerStats);
-=======
->>>>>>> caf8bb789ce908ab946c5a2cc603beaad2ec50db
 
 // Movement routes
 router.post('/move/up', moveUp);
