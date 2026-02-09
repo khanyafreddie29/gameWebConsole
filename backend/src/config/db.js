@@ -10,7 +10,7 @@ dotenv.config()
 const connectDB = async() => {
     try{
         // connection string from the .env file - checks if mongodb_uri exists 
-        const connection = process.env.MONGODB_URI || 'mongodb://localhost:27017/gameConsoleDB';
+        const connection = process.env.MONGODB_URI;
 
         // connection to mongodb
         await mongoose.connect(connection);
