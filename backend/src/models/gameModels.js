@@ -123,13 +123,13 @@ class GameState{
   }
 
   reset(){
+    this.playerId = null;
     this.playerName = ``;
     this.score = 0;
     this.position = {x: 0, y: 0};
     this.powerUps = [];
     this.health = 100;
     this.level = 1;
-    this.playerId = null
   }
 
   // get state from the database
@@ -141,6 +141,7 @@ class GameState{
       const player = await Player.findById(this.playerId)
       if (player){
         return {
+          playerid: player._id,
           playerName: player.playerName,
           score: player.score,
           position: player.position,
@@ -148,8 +149,7 @@ class GameState{
           health: player.health,
           level: player.level,
           highScore: player.highScore,
-          gamesPlayed: player.gamesPlayed,
-          playerid: player._id
+          gamesPlayed: player.gamesPlayed
         }
       }
     } catch (error){
@@ -159,6 +159,7 @@ class GameState{
   }
   getLocalState(){
     return {
+      playerId: this.playerId,
       playerName: this.playerName,
       score: this.score,
       position: this.position,
@@ -166,8 +167,7 @@ class GameState{
       health: this.health,
       level: this.level,
       highScore: 0,
-      gamesPlayed: 0,
-      playerId: this.playerId
+      gamesPlayed: 0
     }
   }
   //  register player in the db
@@ -193,13 +193,13 @@ class GameState{
       }
 
       // updating the local state
+      this.playerId = player._id;
       this.playerName = player.playerName;
       this.score = player.score;
       this.position = player.position;
       this.health = player.health;
       this.level = player.level;
-      this.powerUps = player.powerUps || [];
-      this.playerId = player._id
+      this.powerUps = player.powerUps || []
 
      console.log(`Game state loaded for player:`, this.playerName);
      console.log(`Current State:`, this.getLocalState());

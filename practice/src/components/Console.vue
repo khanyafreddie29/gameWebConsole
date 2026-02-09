@@ -181,7 +181,7 @@ const handleAction = async(action) => {
 
 const resetGame = async() => {
   // confirmation of game reset, if button clicked
-  if (!confirm(`Are you sure you want to reset the game? All progress will be lost.`)) {
+  if (!confirm(`Are you sure you want to reset the game?.`)) {
     return;
   }
   try{
@@ -244,7 +244,7 @@ const resetGame = async() => {
       </div>
       
       <!-- Version Info -->
-      <div class="version-info">&copy; 2026 Shiny Studio | v1.0.0 | Powered by Vue.js & Express</div>
+      <div class="version-info">&copy; 2026 Khanya Freddie | v1.0.0 | Powered by Vue.js & Express.js </div>
     </div>
   </div>
 

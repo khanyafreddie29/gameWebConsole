@@ -21,7 +21,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #6a14e1 0%, #1a1a2e 100%);
+  background: linear-gradient(135deg, #9d67ea 0%, #1a1a2e 100%);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -347,20 +347,18 @@ body{
 .controls button {
   padding: 3px 10px;
   border: none;
-  border-radius: 5px;
   background-color: #f0f0f0;
   cursor: pointer;
   font-weight: bold;
   font-size: .7rem;
   min-width: 40px;
-  border-radius: 180px;
+  border-radius: 200px;
   box-shadow: 5px 5px 3px #18042e;
-  
 }
 
 .controls button:hover {
   background-color: #e0e0e0;
-  transform: translateY(-5px);
+  transform: translateY(-3px) scale(1.05);
   border-color: #9d4edd;
   box-shadow: 0 10px 25px rgba(157, 78, 221, 0.4);
 }
