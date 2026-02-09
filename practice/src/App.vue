@@ -235,7 +235,7 @@ body{
 .box {
   border: 3px solid hsla(281, 80%, 15%, 0.849);
   border-radius: 25px;
-  height: 720px;
+  height: 710px;
   display: flex;
   flex-direction: column;
   justify-content: center;

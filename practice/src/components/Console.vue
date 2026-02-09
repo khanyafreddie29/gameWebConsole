@@ -181,7 +181,7 @@ const handleAction = async(action) => {
 
 const resetGame = async() => {
   // confirmation of game reset, if button clicked
-  if (!confirm(`Are you sure you want to reset the game?.`)) {
+  if (!confirm(`Are you sure you want to reset the game?`)) {
     return;
   }
   try{
@@ -355,6 +355,10 @@ const resetGame = async() => {
 </template>
 
 <style>
+[v-cloak] {
+  display: none !important;
+} 
+
 .message {
   color: #4a5568;
   font-weight: 500;
