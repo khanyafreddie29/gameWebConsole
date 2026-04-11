@@ -265,7 +265,7 @@ const resetGame = async() => {
   
   <div v-if="gameState.playerName" class="game-info">
     <p><strong>Player:</strong> {{ gameState.playerName }}</p>
-    <p><strong>Score:</strong> {{ gameState.score }} points</p>
+    <p><strong>Score:</strong> {{ gameState.score }} pts</p>
     <p><strong>Position:</strong> ({{ gameState.position.x }}, {{ gameState.position.y }})</p>
     <p><strong>Health:</strong> {{ gameState.health }}%</p>
     <p><strong>Level:</strong> {{ gameState.level }}</p>
@@ -415,11 +415,12 @@ const resetGame = async() => {
   }
 
   .game-info {
-    grid-template-columns: repeat(3, 1fr) /* stack instead of 3 columns */
+    grid-template-columns: repeat(3, 1fr)
   }
 
   .game-info p {
-    font-size: 14px;
+    font-size: 12px;
+    text-align: center;
   }
 
   .game-info strong {
@@ -434,6 +435,9 @@ const resetGame = async() => {
   .controls button {
     font-size: 0.6rem;
     padding: 5px;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
   }
 
   .display2 h3 {
@@ -471,6 +475,11 @@ const resetGame = async() => {
     grid-template-columns: repeat(3, 1fr); /* 2 columns on tablet */
   }
 
+  .game-info p {
+    font-size: 16px;
+    text-align: center;
+  }
+
   .controls button {
     font-size: 0.75rem;
   }
@@ -488,6 +497,11 @@ const resetGame = async() => {
 
   .game-info {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .game-info p {
+    font-size: 16px;
+    text-align: center;
   }
 
 }

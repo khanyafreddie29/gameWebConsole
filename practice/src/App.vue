@@ -257,7 +257,7 @@ body{
 .display1 {
   border: 2px solid black;
   border-radius: 10px;
-  height: 215px;
+  height: 220px;
   width: 450px;
   padding: 20px;
   border: inset;
